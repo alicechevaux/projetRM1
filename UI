@@ -1,0 +1,80 @@
+library(shiny)
+library(shinydashboard)
+library(rsconnect)
+library(ggplot2)
+source('fonctions.R')
+
+
+header<-dashboardHeader(title="Rapport d'activité")
+
+sidebar <- dashboardSidebar(
+  sidebarSearchForm(label = "Recherche", "searchText", "searchButton"),
+  sidebarMenu(
+    # Setting id makes input$tabs give the tabName of currently-selected tab
+    id = "tabs",
+    menuItem("Présentation", tabName = "presentation", icon = icon("house")),
+    menuItem("Questionnaire", icon = icon("pencil"),
+             menuSubItem("test de personnalité",tabName = "test1"),
+             menuSubItem("test d'orientation",tabName = "test2")
+    ),
+    menuItem("Etude de données", icon = icon("bar-chart-o"),
+             menuSubItem("Données collectées", tabName = "donnees1"),
+             menuSubItem("Données simulées", tabName = "donnees2")
+    )
+  ))
+
+
+
+
+body<-dashboardBody(tabItems(
+  tabItem("presentation",
+          "blablabla"
+  ),
+  tabItem("test1",tags$title("Votre Test"),  # Start Test Tab and html title tag
+                  h2("Testez-vous"),
+                  # Sidebar with the scale items
+                  box(width = 100,
+                                                        
+                                                        
+                                                        "Please indicate how much you agree or disagree with the following statements.
+                              Note that there are no right or wrong answers, and that your responses are not recorded
+                              in any way. Try to answer how each statement relates to you over the past year, not how you
+                              are feeling currently.",
+                                                        tags$hr(),
+                      g(dataquest)
+                                                        ,
+                      
+                      actionButton(inputId = "n", label = "Submit and get your Score", icon = icon("user-circle")),
+                      conditionalPanel("input.n == 1",         ## Start the conditional Panel for the Results, N == 1
+                                       
+                                       
+                                       tabBox(                                         ## Start Tabbox for results
+                                         title = "Your Results", width = 100,
+                                         tabPanel("Compared to our normative sample",     # Table Panel 1 Open
+                                                  h2("Put information about the norms and what people's scores mean here."),
+                                                  
+                                                  h2("Votre score") ,
+                                                  
+                                                  plotOutput("Curve",
+                                                             # width="600px",
+                                                             # height = "80px"
+                                                             ), 
+                                                  plotOutput("hist"),
+                                                  
+                                                  textOutput("Output")   ## Here is where the rShiny score feeds things back to them
+                                                  
+                                         
+                      
+                  ) 
+    
+                   )  ## Close Tab Box
+  ))),  # Close Results tab item
+                                                        
+  tabItem("test2",
+          "Sub-item 2 tab content"
+  ),
+  tabItem("donnees1","rien"),
+  tabItem("donnees2","rien2")
+))
+
+ui <- dashboardPage(header,sidebar,body)
