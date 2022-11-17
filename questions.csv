@@ -1,0 +1,51 @@
+id,q,Ouverture d'esprit,Conscienciosité,Extraversion,Amabilité,Nevrotisme
+E1,Je suis le coeur des soirées,0,0,1,0,0
+E2,Je ne suis pas très bavard,0,0,-1,0,0
+E3,Je suis facilement à l’aise avec les gens,0,0,1,0,0
+E4,Je me met souvent en retrait,0,0,-1,0,0
+E5,Je commence les conversations,0,0,1,0,0
+E6,Je n’aime pas exprimer d’opinions tranchés,0,0,-1,0,0
+E7,Je parle à beaucoup de personnes différentes dans un rassemblement,0,0,1,0,0
+E8,Je n’aime pas attirer l’attention sur moi,0,0,-1,0,0
+E9,Etre au centre de l’attention ne me dérange pas,0,0,1,0,0
+E10,Je m’exprime peu avec les gens que je ne connais pas,0,0,-1,0,0
+N1,Je suis facilement stressé,0,0,0,0,1
+N2,Je suis détendu la plupart du temps,0,0,0,0,-1
+N3,Je m’inquiète toujours du déroulement de mes plans,0,0,0,0,1
+N4,J’ai rarement le cafard,0,0,0,0,-1
+N5,Je peux être perturbée par de petites choses,0,0,0,0,1
+N6,Je perds mon calme rapidement,0,0,0,0,1
+N7,Je change d’humeur beaucoup de fois au cours d’une journée,0,0,0,0,1
+N8,Mon humeur change drastiquement selon de petits évènements,0,0,0,0,1
+N9,Je suis facilement irrité,0,0,0,0,1
+N10,J’ai tendance a broyé du noir,0,0,0,0,1
+A1,Je me sens peu concerné par les autres,0,0,0,-1,0
+A2,Les gens m’intéressent beaucoup,0,0,0,1,0
+A3,Je ne respecte pas les gens que je ne connais pas,0,0,0,-1,0
+A4,Je sympathise facilement avec la situation des autres,0,0,0,1,0
+A5,Je ne m’interesse pas aux soucis des autres,0,0,0,-1,0
+A6,J’ai un coeur d’artichaut,0,0,0,1,0
+A7,Je ne suis pas interessé par les autres,0,0,0,-1,0
+A8,Je prends sur mon temps pour m’occuper des autres,0,0,0,1,0
+A9,Je comprend facilement les sentiments des autres,0,0,0,1,0
+A10,Je sais mettre les gens à l’aise,0,0,0,1,0
+C1,Je suis toujours prêt,0,1,0,0,0
+C2,Je laisse trainer mes affaires,0,-1,0,0,0
+C3,Je fais toujours attention aux détails,0,1,0,0,0
+C4,J’ai tendance à abimer mes affaires,0,-1,0,0,0
+C5,Je m’occupe des corvées dès que possible,0,1,0,0,0
+C6,J’oublie de remettre les objets à leur place,0,-1,0,0,0
+C7,J’aime l’ordre,0,1,0,0,0
+C8,Je me dérobe de mes obligations,0,-1,0,0,0
+C9,J’aime suivre un emploi du temps/programme,0,1,0,0,0
+C10,Je suis précis dans mon travail,0,1,0,0,0
+O1,J’ai un vocabulaire riche et varié,1,0,0,0,0
+O2,J’ai des difficultés à comprendre les concepts abstraits,-1,0,0,0,0
+O3,J’ai une imagination vive,1,0,0,0,0
+O4,Je ne suis pas interessé par les concepts métaphysiques / abstraits,-1,0,0,0,0
+O5,J’ai souvent de très bonnes idées,1,0,0,0,0
+O6,Je n’ai pas beaucoup d’imagination,-1,0,0,0,0
+O7,Je comprends rapidement ce qu’on m’explique,1,0,0,0,0
+O8,J’utilise des mots compliqués,1,0,0,0,0
+O9,Je passe du temps à refléchir seul,1,0,0,0,0
+O10,Je suis plein d’idées et de projets,1,0,0,0,0
