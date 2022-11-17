@@ -1,0 +1,65 @@
+server <- function(input, output) {
+  
+  
+  Results <- reactive({ #c(as.numeric(input$E1),as.numeric(input$E2),as.numeric(input$E3),as.numeric(input$E4)))
+    x=NULL
+    for (i in c(1:nrow(dataquest))){
+      x<-c(x,as.numeric(do.call("$",list(input,df1[i,1]))))    #il faut trouver comment pouvoir appeler les input alorsque c'est des attributs
+    }
+    x
+  })
+  
+  
+
+  Score<-reactive({
+    z=replicate(length(res),0)
+    for (j in c(1:length(res))){
+      for (i in c(1:length(as.vector(Results())))){
+        z[j]=z[j]+(as.vector(Results())[i]-3)*(as.vector(df1[[i,j+2]]))/2
+      }
+    }
+    z/scoremax
+  }
+  )
+  
+  observeEvent(input$n, {                                      #  Observe event action from Actionbutton
+    data<-rbind(data,as.vector(Results()))
+    save(data,file='www/data.rda')
+    
+    
+    
+  })
+  output$Output <- renderText({
+    w=NULL
+    for (i in c(1:(length(res)))) {
+      w<-c(w,"Votre score de",res[i],"est de",(Score()[i]+1)*50)  
+    }
+    paste(w)
+  })
+  output$Curve <- renderPlot({
+    vecteur=NULL
+    for (i in c(1:length(res))){
+      vecteur<-c(vecteur,(Score()[i]+1)*50)
+    }
+    vecteur<-c(vecteur,100-vecteur)
+    df2 <- data.frame(
+      Résultats = rep(res,2),
+      pourcentage=vecteur,
+      ratio=rep(c("oui", "non"), each = length(res))
+    )
+    ggplot(df2, aes(x = Résultats, y = pourcentage))+
+      geom_col(aes(fill = ratio), width = 0.7)+
+      scale_fill_manual(values=c('white','grey50'))+
+      coord_flip()
+
+    })
+  output$hist<-renderPlot({
+    ggplot(long, aes(x=score,fill=type)) +
+      geom_histogram(binwidth = 0.5)+
+      facet_wrap(~type,ncol=1)
+  })
+  output$nombre<-renderText({
+    paste(c("vous êtes",nrow(data),"à avoir répondu à ce test"))
+  })
+  
+}
