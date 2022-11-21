@@ -2,6 +2,9 @@
 Voici une partie de mon code effectué pour un projet pour se familiariser avec R. Il a pour but d'être intégrer à une application shiny afin de créer un quizz/test 
 qui ressortira des scores calculés par une certaine fonctions et qui enregistrera les réponses des participants.
 
+Vous pouvez trouvé l'application Shiny qui en découle ici : https://alnack.shinyapps.io/newapp/
+ou pour le même résultat executer le fichier app.R
+
 Ce code fonctionne pour mettre en place un test/quizz qui contiennent des questions, récoltent les résultats, et calcule un ertain score basé sur certains paramètres sur 
 lesquels les questions portent. 
 Par exemple j'ai utilisé une base de données basées sur un test de personnalité dont chaque question influe selon une certaine constante sur les paramètres 
